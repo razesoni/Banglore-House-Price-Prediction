@@ -1,26 +1,76 @@
 # Bengaluru House Price Prediction
 
-A learning project with a scikit-learn housing model, a Flask prediction server, and an HTML/CSS/JavaScript client.
+A machine learning project demonstrating end-to-end predictive modeling, from data exploration and model training to deployment and client-facing inference.
 
-## Repository
+## Overview
 
-- `notebooks/Banglore_house_price_prediction.ipynb`: training notebook
-- `data/Bengaluru_House_Data.csv`: training data
-- `data/model.pickle` and `data/columns.json`: existing inference artifacts
-- `server/server.py`, `server/util.py`: Flask endpoints and artifact loading
-- `client/`: browser interface
+This project implements a regression model trained on Bengaluru housing data to predict residential property prices. It includes a complete pipeline: Jupyter notebook-based analysis, a Flask REST API server, and an interactive web-based client interface.
 
-## Run locally
+## Key Features
 
-From the repository root in a separate Python environment:
+- **Data-Driven Modeling**: Trained model using scikit-learn on historical Bengaluru housing data
+- **RESTful API**: Flask server providing real-time price predictions
+- **Web Interface**: HTML/CSS/JavaScript client for user-friendly predictions
+- **Reproducible Artifacts**: Serialized model and configuration for consistent inference
 
-```bash
-python -m pip install -r requirements.txt
-python server/server.py
+## Project Structure
+
+```
+├── notebooks/
+│   └── Banglore_house_price_prediction.ipynb    # Model training & EDA
+├── data/
+│   ├── Bengaluru_House_Data.csv                 # Training dataset
+│   ├── model.pickle                             # Trained model artifact
+│   └── columns.json                             # Feature configuration
+├── server/
+│   ├── server.py                                # Flask API server
+│   └── util.py                                  # Prediction utilities
+├── client/
+│   └── app.html                                 # Web interface
+└── requirements.txt
 ```
 
-The development server runs on port 5000. Open `client/app.html` and check its JavaScript API URL matches the running server. Retrain the model if its pickle is incompatible with your installed scikit-learn version.
+## Tech Stack
 
-## Limitations
+- **Machine Learning**: scikit-learn, Pandas, NumPy
+- **Backend**: Python, Flask
+- **Frontend**: HTML, CSS, JavaScript
 
-Historical listing data is not a current market valuation. The saved model's package versions and a fresh evaluation are not recorded here. Verify input ranges, add endpoint tests and export the training environment before deployment. The repository slug is retained to preserve existing links.
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- Virtual environment (recommended)
+
+### Installation & Setup
+
+1. Clone the repository
+2. Create and activate a Python virtual environment
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Start the Flask server:
+   ```bash
+   python server/server.py
+   ```
+
+The API server runs on `http://localhost:5000`. Open `client/app.html` in a browser and ensure the JavaScript API endpoint matches your running server.
+
+## Limitations & Considerations
+
+- **Historical Data**: Model predictions reflect historical market patterns, not current valuations
+- **Model Maintenance**: Package dependency versions should be documented; verify model compatibility before inference
+- **Input Validation**: Review appropriate input ranges for your use case
+- **Testing**: Production deployment should include endpoint test coverage and model evaluation metrics
+
+## Future Enhancements
+
+- Automated unit tests for API endpoints
+- Model performance tracking and logging
+- Enhanced input validation and error handling
+- Documentation of package versions and model evaluation results
+
+---
+
+*This project demonstrates full-stack machine learning development, from exploration to deployment.*
